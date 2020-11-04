@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Safe Navigation</string>
+    <string name="logo">Logo</string>
+    <string name="log_in">Log In</string>
+    <string name="registerBtn">Register</string>
+    <string name="log_inTV">Log In</string>
+    <string name = "map_api_key">AIzaSyDLYYWxukMVXquu4oQG6KVfCDOlfeefBiQ</string>
+</resources>

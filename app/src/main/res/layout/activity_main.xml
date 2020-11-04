@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+         <!--   <ImageButton
+                android:id="@+id/menuIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_menu" />  -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Safe Navigation"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#0AC5DD"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_door"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:onClick="logOut"/>
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        tools:context=".MapsActivity" >
+
+    </fragment>
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="currentLocation"
+        android:text="current"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_placeholder" />
+    <ImageView
+        android:id="@+id/locationIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="addLocation"
+        android:text="add"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_map" />
+    <ImageView
+        android:id="@+id/directionIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:onClick="getDirection"
+        android:text="add"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_directions" />
+    <ImageView
+        android:id="@+id/cameraRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/locationIV"
+        android:layout_alignParentLeft="true"
+        android:onClick="recordVideo"
+        android:text="add"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_video_camera" />
+
+
+
+</RelativeLayout>
