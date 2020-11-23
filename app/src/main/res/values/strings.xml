@@ -6,4 +6,6 @@
     <string name="log_inTV">Log In</string>
     <string name = "map_api_key">AIzaSyDLYYWxukMVXquu4oQG6KVfCDOlfeefBiQ</string>
     <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="password">Password?</string>
 </resources>

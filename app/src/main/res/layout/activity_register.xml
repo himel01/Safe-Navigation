@@ -2,14 +2,12 @@
 <layout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="3"
-        tools:context=".RegisterActivity"
-        >
+        tools:context=".RegisterActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:drawableLeft="@drawable/ic_people_black_24dp"
-                android:hint="Name"
+                android:hint="@string/name"
                 android:inputType="text" />
 
          <!--   <EditText
@@ -67,8 +65,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="20dp"
-                android:drawableLeft="@drawable/ic_email_black_24dp"
-                android:hint="Email"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -78,8 +76,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="25dp"
-                android:drawableLeft="@drawable/ic_lock_black_24dp"
-                android:hint="Password?"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:hint="@string/password"
                 android:inputType="textPassword" />
         </LinearLayout>
 
@@ -118,6 +116,8 @@
                 android:id="@+id/loginTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#D11616"
+                android:layout_marginLeft="10dp"
                 android:text="@string/log_inTV" />
         </LinearLayout>
 

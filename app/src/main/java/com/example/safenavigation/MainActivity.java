@@ -169,10 +169,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void getDirection(View view) {
-        startActivity(new Intent(MainActivity.this,GetDirectionActivity.class));
 
-    }
 
     public void recordVideo(View view) {
         Intent videoIntent=new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
