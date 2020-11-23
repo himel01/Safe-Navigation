@@ -5,4 +5,5 @@
     <string name="registerBtn">Register</string>
     <string name="log_inTV">Log In</string>
     <string name = "map_api_key">AIzaSyDLYYWxukMVXquu4oQG6KVfCDOlfeefBiQ</string>
+    <string name="email">Email</string>
 </resources>
