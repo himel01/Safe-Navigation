@@ -60,17 +60,21 @@ public class LoginActivity extends AppCompatActivity {
 
     private void nullCheckLogin() {
 
-        if (email!=null){
-            if(password!=null){
+        if (email!=""){
+            if(password!=""){
 
                 login(email,password);
 
             }else {
-                Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+                binding.loginPasswordET.setError("Enter Password");
+                binding.loginPasswordET.requestFocus();
             }
 
         }else{
-            Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show();
+            binding.loginEmailET.setError("Enter Email");
+            binding.loginEmailET.requestFocus();
         }
 
     }
