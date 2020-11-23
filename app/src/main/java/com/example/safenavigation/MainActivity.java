@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap map;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    private static int VIDEO_REQUEST=1;
+    private static final int VIDEO_REQUEST=1;
     private Uri videoUri=null;
 
 
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==VIDEO_REQUEST&&resultCode==RESULT_OK)
         {
             videoUri=data.getData();
