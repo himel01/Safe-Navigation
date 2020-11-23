@@ -71,24 +71,30 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void nullCheckRegistration() {
-        if(name!=null){
-            if(email!=null){
-                if(password!=null){
+        if(!name.equals("")){
+            if(!email.equals("")){
+                if(!password.equals("")){
 
                     register(name,email,password);
 
 
                 }else {
-                    Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    binding.registerPasswordET.setError("Enter Password");
+                    binding.registerPasswordET.requestFocus();
                 }
 
             }else{
-                Toast.makeText(this, "Enter Email Address", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Enter Email Address", Toast.LENGTH_SHORT).show();
+                binding.registerEmailET.setError("Enter Email");
+                binding.registerEmailET.requestFocus();
             }
 
         }
         else{
-            Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
+            binding.registerNameET.setError("Enter Name");
+            binding.registerNameET.requestFocus();
         }
     }
 

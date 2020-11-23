@@ -38,7 +38,7 @@ import java.util.Locale;
 public class AddLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap map;
-    private String address,locationinfo,userId;
+    private String address,locationInfoStr,userId;
     private FirebaseAuth firebaseAuth;
     private EditText locationInfo;
     private DatabaseReference databaseReference;
@@ -132,7 +132,7 @@ public class AddLocationActivity extends AppCompatActivity implements OnMapReady
                     String address=getAddress(currentLocation.getLatitude(),currentLocation.getLongitude());
                     //map.addMarker(new MarkerOptions().position(currentLatLng).title(address));
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng,12));
-                    locationinfo=locationInfo.getText().toString();
+                    locationInfoStr =locationInfo.getText().toString();
                     userId=firebaseAuth.getCurrentUser().getUid();
 
                    /* Map<String,Object> locationMap=new HashMap<>();
@@ -143,7 +143,7 @@ public class AddLocationActivity extends AppCompatActivity implements OnMapReady
                     DatabaseReference locationReference=databaseReference.child("Location").child("User Location Request").child(userId);
                     locationReference.setValue(locationMap);*/
                     //DatabaseReference generalLocation=databaseReference.child("Location").child("")\
-                    LocationInfo locationInfo=new LocationInfo(locationinfo,address,currentLocation.getLatitude(),currentLocation.getLongitude());
+                    LocationInfo locationInfo=new LocationInfo(locationInfoStr,address,currentLocation.getLatitude(),currentLocation.getLongitude());
                     DatabaseReference locationReference=databaseReference.child("Location").child("User Location Request").child(userId);
                     locationReference.setValue(locationInfo);
 
