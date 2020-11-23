@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap map;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    private static final int VIDEO_REQUEST=1;
-    private Uri videoUri=null;
+    private static final int REQUEST_VIDEO_CAPTURE = 1;
+    private Uri videoUri;
 
 
     @Override
@@ -172,12 +172,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     public void recordVideo(View view) {
-        Intent videoIntent=new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        if(videoIntent.resolveActivity(getPackageManager())!=null)
-        {
-            startActivityForResult(videoIntent,VIDEO_REQUEST);
-        }
 
+            Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
+            }
 
     }
 
@@ -190,9 +189,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==VIDEO_REQUEST&&resultCode==RESULT_OK)
+        if(requestCode==REQUEST_VIDEO_CAPTURE&&resultCode==RESULT_OK)
         {
             videoUri=data.getData();
+
         }
     }
 }
