@@ -22,7 +22,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:contentDescription="@string/logo"
-                android:src="@drawable/logo"/>
+                android:src="@drawable/new_logo" />
 
             <!--android:src="@drawable/batman_logo" />-->
         </LinearLayout>
