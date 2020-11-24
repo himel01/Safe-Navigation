@@ -12,8 +12,8 @@
         <activity android:name=".AddLocationActivity" />
         <activity android:name=".RegisterActivity"
             android:label="Registration"/>
-        <activity android:name=".LoginActivity"
-            android:label="Login">
+        <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
