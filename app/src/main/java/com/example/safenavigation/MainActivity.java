@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -45,16 +51,27 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private DatabaseReference databaseReference;
     private static final int REQUEST_VIDEO_CAPTURE = 1;
     private Uri videoUri;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+
         init();
         getLocationPermission();
         SupportMapFragment supportMapFragment=(SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-8034354462407691/2203318908");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
     }
 
@@ -125,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void getCurrentLocation() {
+
         FusedLocationProviderClient fusedLocationProviderClient=new FusedLocationProviderClient(this);
 
         if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){return;}
@@ -140,6 +158,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     String address=getAddress(currentLocation.getLatitude(),currentLocation.getLongitude());
                     map.addMarker(new MarkerOptions().position(currentLatLng).title(address));
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng,12));
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        Log.d("TAG", "The interstitial wasn't loaded yet.");
+                    }
 
                 }
 
