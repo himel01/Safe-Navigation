@@ -56,7 +56,7 @@ public class AddLocationActivity extends AppCompatActivity implements OnMapReady
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               if(dataSnapshot.exists()){maxId=(dataSnapshot.getChildrenCount());}
+               if(dataSnapshot.exists()){maxId=dataSnapshot.getChildrenCount();}
             }
 
             @Override

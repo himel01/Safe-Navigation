@@ -17,12 +17,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_add_location_black_24dp"
+        android:layout_margin="25dp"
         android:onClick="addLocation"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Speed Breaker/Hole/Water"
+        android:textColor="#0043C8"
         android:gravity="center"
         android:id="@+id/locationInfoET"/>
 
